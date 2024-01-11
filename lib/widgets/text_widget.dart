@@ -45,7 +45,7 @@ class TextWidget extends StatelessWidget {
         overflow: textOverflow,
         style: TextStyle(
             color: color,
-            fontWeight:  isFontWeight ? FontWeight.w700 : customWeight ?? FontWeight.w500,
+            fontWeight:  isFontWeight ? FontWeight.w800 : customWeight ?? FontWeight.w500,
             fontSize: customFontsize ?? calculateFontSize(),
             fontFamily: 'Sora'
           ),

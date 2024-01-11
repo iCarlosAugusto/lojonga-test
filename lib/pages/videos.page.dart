@@ -30,7 +30,7 @@ class VideosPage extends StatelessWidget {
               videoUrl: item.url
             );
           }, 
-          separatorBuilder: (_,__) => Container(height: 16),
+          separatorBuilder: (_,__) => const Divider(),
           itemCount: value.videos.length
         )
       ),

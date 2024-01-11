@@ -4,6 +4,7 @@ import 'package:lojangtest/pages/videos.page.dart';
 import 'package:lojangtest/tabbar.widget.dart';
 import 'package:lojangtest/utils/wifi.connection.dart';
 import 'package:lojangtest/viewmodels/videos.viewmodel.dart';
+import 'package:lojangtest/widgets/text_widget.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -54,7 +55,13 @@ class HomePage extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Inspirações"),
+          centerTitle: true,
+          title: const TextWidget(
+            "Inspirações",
+            color: Colors.white,
+            isFontWeight: true,
+            fontSize: AvailableFontSizes.big,
+          ),
           backgroundColor: Colors.red.withOpacity(0.3),
           bottom: ColoredTabBar(
             TabBar(
@@ -71,7 +78,10 @@ class HomePage extends StatelessWidget {
                 const Tab(
                   child: Align(
                       alignment: Alignment.center,
-                      child: Text("APPS"),
+                      child: TextWidget(
+                        "VÍDEOS",
+                        fontSize: AvailableFontSizes.small,
+                      ),
                     ),
                 ),
                 Tab(
@@ -81,7 +91,10 @@ class HomePage extends StatelessWidget {
                     ),
                     child: const Align(
                       alignment: Alignment.center,
-                      child: Text("MOVIES"),
+                      child: TextWidget(
+                        "ARTIGOS",
+                        fontSize: AvailableFontSizes.small,
+                      ),
                     ),
                   ),
                 ),
@@ -93,7 +106,10 @@ class HomePage extends StatelessWidget {
                     ),
                     child: const Align(
                       alignment: Alignment.center,
-                      child: Text("GAMES"),
+                      child: TextWidget(
+                        "CITAÇÕES",
+                        fontSize: AvailableFontSizes.small,
+                      ),
                     ),
                   ),
                 ),
