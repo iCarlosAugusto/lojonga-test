@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:lojangtest/pages/videos.page.dart';
 import 'package:lojangtest/tabbar.widget.dart';
+import 'package:lojangtest/utils/wifi.connection.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  ConnectionStatusListener internet = ConnectionStatusListener.getInstance();
+  initNoInternetListener();
   runApp(const MyApp());
 }
 
@@ -87,7 +92,7 @@ class HomePage extends StatelessWidget {
           ),
         body: const TabBarView(
           children: [
-            Icon(Icons.apps),
+            const VideosPage(),
             Icon(Icons.movie),
             Icon(Icons.games),
           ]
