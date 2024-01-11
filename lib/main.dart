@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:lojangtest/pages/articles.page.dart';
 import 'package:lojangtest/pages/videos.page.dart';
 import 'package:lojangtest/tabbar.widget.dart';
 import 'package:lojangtest/utils/wifi.connection.dart';
+import 'package:lojangtest/viewmodels/videos.viewmodel.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   ConnectionStatusListener internet = ConnectionStatusListener.getInstance();
   initNoInternetListener();
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => VideosViewModel()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -90,12 +100,15 @@ class HomePage extends StatelessWidget {
               ]),
           ),
           ),
-        body: const TabBarView(
-          children: [
-            const VideosPage(),
-            Icon(Icons.movie),
-            Icon(Icons.games),
-          ]
+        body: Container(
+          color: Colors.red.withOpacity(0.3),
+          child: const TabBarView(
+            children: [
+              VideosPage(),
+              ArticlesPage(),
+              Icon(Icons.games),
+            ]
+          ),
         ),
       ));
   }
