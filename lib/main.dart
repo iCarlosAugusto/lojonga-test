@@ -3,6 +3,7 @@ import 'package:lojangtest/pages/articles.page.dart';
 import 'package:lojangtest/pages/videos.page.dart';
 import 'package:lojangtest/tabbar.widget.dart';
 import 'package:lojangtest/utils/wifi.connection.dart';
+import 'package:lojangtest/viewmodels/articles.viewmodel.dart';
 import 'package:lojangtest/viewmodels/videos.viewmodel.dart';
 import 'package:lojangtest/widgets/text_widget.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => VideosViewModel()),
+        ChangeNotifierProvider(create: (_) => ArticlesViewModel())
       ],
       child: const MyApp(),
     ),
@@ -121,7 +123,7 @@ class HomePage extends StatelessWidget {
           child: const TabBarView(
             children: [
               VideosPage(),
-              ArticlesPage(),
+              ArticlePage(),
               Icon(Icons.games),
             ]
           ),
